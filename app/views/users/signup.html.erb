@@ -1,0 +1,27 @@
+<h3>Sign Up</h3>
+
+<%= form_with url: "/users/signup", method: "POST" do %>
+    <div>
+        <%= label_tag :username , "Username:" %>
+        <%= text_field_tag :username %>
+    </div>
+
+    <div>
+        <%= label_tag :email , "Email:" %>
+        <%= text_field_tag :email %>
+    </div>
+
+    <div>
+        <%= label_tag :password , "Password:" %>
+        <%= text_field_tag :password %>
+    </div>
+
+    <div>
+        <%= label_tag :confirm_password , "Confirm Password:" %>
+        <%= text_field_tag :confirm_password %>
+    </div>
+
+    <div>
+        <%= submit_tag "Submit" %>
+    </div>
+<% end %>

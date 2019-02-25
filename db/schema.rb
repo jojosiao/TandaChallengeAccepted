@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_02_23_044250) do
 
-  create_table "organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.decimal "hourly_rate", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "shifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "shifts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "start"
     t.datetime "finish"
     t.integer "break_length"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_02_23_044250) do
     t.index ["user_id"], name: "index_shifts_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password"
