@@ -1,27 +1,29 @@
+<h1 class="underline">Adnat</h1>
+
 <h3>Sign Up</h3>
 
-<%= form_with url: "/users/signup", method: "POST" do %>
+<%= form_with model: @user, url: "/signup", method: "POST", local: true do |f|  %>
     <div>
-        <%= label_tag :username , "Username:" %>
-        <%= text_field_tag :username %>
+        <%= f.label :name , "Name:" %>
+        <%= f.text_field :name %>
     </div>
 
     <div>
-        <%= label_tag :email , "Email:" %>
-        <%= text_field_tag :email %>
+        <%= f.label :email , "Email:" %>
+        <%= f.text_field :email %>
     </div>
 
     <div>
-        <%= label_tag :password , "Password:" %>
-        <%= text_field_tag :password %>
+        <%= f.label :password , "Password:" %>
+        <%= f.password_field :password %>
     </div>
 
     <div>
-        <%= label_tag :confirm_password , "Confirm Password:" %>
-        <%= text_field_tag :confirm_password %>
+        <%= f.label :confirm_password , "Confirm Password:" %>
+        <%= f.password_field  :confirm_password %>
     </div>
 
     <div>
-        <%= submit_tag "Submit" %>
+        <%= f.submit "Submit" %>
     </div>
 <% end %>
