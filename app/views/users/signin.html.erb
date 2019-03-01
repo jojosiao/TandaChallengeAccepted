@@ -1,4 +1,22 @@
 <h1>Adnat</h1>
 
 <h3>Sign In</h3>
+<% flash.each do |key,value| %>
+    <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
 
+<%= form_with model: @user, url: "/signin", method: "POST", local: true do |f|  %>
+    <div>
+    <%= f.label :email , "Email:" %>
+    <%= f.text_field :email %>
+</div>
+
+<div>
+    <%= f.label :password , "Password:" %>
+    <%= f.password_field :password %>
+</div>    
+
+<div>
+<%= f.submit "Submit" %>
+</div>
+<% end %>

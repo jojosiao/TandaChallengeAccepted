@@ -2,7 +2,20 @@
 
 <h3>Sign Up</h3>
 
+
 <%= form_with model: @user, url: "/signup", method: "POST", local: true do |f|  %>
+
+    <% if @user.errors.any? %>
+    <div>
+    <ul>
+    <h2>Errors:</h2>
+    <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+    <% end %>
+
     <div>
         <%= f.label :name , "Name:" %>
         <%= f.text_field :name %>
@@ -16,11 +29,10 @@
     <div>
         <%= f.label :password , "Password:" %>
         <%= f.password_field :password %>
-    </div>
-
+    </div>    
     <div>
-        <%= f.label :confirm_password , "Confirm Password:" %>
-        <%= f.password_field  :confirm_password %>
+        <%= f.label :password_confirmation , "Confirm Password:" %>
+        <%= f.password_field  :password_confirmation %>
     </div>
 
     <div>
