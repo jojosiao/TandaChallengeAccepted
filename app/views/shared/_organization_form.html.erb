@@ -1,0 +1,27 @@
+<%= form_with model: @organization, url: "/organizations/create", method: "POST", local: true do |f|  %>
+    <%= title unless title.nil? %>
+    <% if @user.errors.any? %>
+        <div>
+        <ul>
+        <h2>Errors:</h2>
+            <% @organization.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div>
+        <%= f.label :name , "Name:" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :hourly_rate , "Hourly Rate:$" %>
+        <%= f.text_field :hourly_rate %>
+    </div>
+
+    <div>
+        <%= f.submit "Submit" %>
+    </div>
+<% end %>    

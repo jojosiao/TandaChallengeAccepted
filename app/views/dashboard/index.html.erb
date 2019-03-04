@@ -1,0 +1,22 @@
+<h1>Adnat</h1>
+<br/>
+<span>Logged in as <%= @user.name %> <%= link_to 'logout','/logout' %></span>
+<br/>
+<% if @user.organization.nil? %>
+    <p>It seems you are not a member of any organizations.</p>
+    <p>Join an existing one or create a new one.</p>
+    <br/>
+    <h3>Organizations</h3>
+    <ul>
+    <% @orgs.each do |org| %>
+    <li>
+        <ul>
+        <li><%= org.name %></li>
+        <li><%= link_to 'Join', 'organizations/'+org.id.to_s+'/join/' %></li>
+        <li><%= link_to 'Edit', 'organizations/'+org.id.to_s+'/edit/' %></li>
+        </ul>
+    </li>
+    <% end %>
+<% end %>
+</ul>
+ <%= render  partial: 'shared/organization_form', locals: { 'organization': @organization, 'title': 'Create Organization' } %>
