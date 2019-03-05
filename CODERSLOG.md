@@ -54,3 +54,28 @@ but it seems this is gone now in rails 5.
 
 TO DO:
 1.) hash password when saving to database to hide password in plaintext.
+
+2019-03-05
+Today, I learned that Rails 5 updates db/schema.rb which is being run to deploy migration to db.
+I think that when you type 
+
+rails g model <name>
+
+it generates model and its corresponding migration file which you can edit to add or remove columns.
+The model file and the migration file are 2 separate files. They don't have any connection at all.
+
+TO DO: 
+I had to modify the migration files because the structure of the db is different from how I see it. the 
+diagram in github is somehow misleading. 
+
+It seems it is more appropriate to say that organizations has many users, and many shifts of users.
+users have many shifts and has many organizations. and then, shifts belong to organizations and users.
+
+organizations -> users
+                      -> shifts
+
+users -> organizations
+          -> shifts
+
+shift -> organization
+       ->  user

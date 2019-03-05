@@ -4,5 +4,6 @@ class User < ApplicationRecord
     validates :password, confirmation: true
     validates :password_confirmation, presence: true
 
-    belongs_to :organization, optional: true
+    has_many :organizations
+    has_many :shifts
 end

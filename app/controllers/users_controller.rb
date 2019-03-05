@@ -42,7 +42,7 @@ class UsersController < ApplicationController
             session.delete(:user_id)
             flash[:message] = "logout successful."
         end
-            redirect_to "/login"
+            redirect_to "/signin"
     end
 
     private 

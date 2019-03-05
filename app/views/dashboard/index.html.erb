@@ -2,7 +2,7 @@
 <br/>
 <span>Logged in as <%= @user.name %> <%= link_to 'logout','/logout' %></span>
 <br/>
-<% if @user.organization.nil? %>
+<% if @user.organizations.nil? %>
     <p>It seems you are not a member of any organizations.</p>
     <p>Join an existing one or create a new one.</p>
     <br/>
