@@ -5,6 +5,7 @@ class CreateUser < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :password
 
+      t.references :organization, foreign_key: true
       t.timestamps
     end
   end

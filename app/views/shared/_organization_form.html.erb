@@ -1,6 +1,6 @@
-<%= form_with model: @organization, url: "/organizations/create", method: "POST", local: true do |f|  %>
+<%= form_with model: @organization, url: "/organizations/", method: "POST", local: true do |f|  %>
     <%= title unless title.nil? %>
-    <% if @user.errors.any? %>
+    <% if @organization.errors.any? %>
         <div>
         <ul>
         <h2>Errors:</h2>

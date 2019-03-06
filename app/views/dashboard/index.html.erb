@@ -2,7 +2,7 @@
 <br/>
 <span>Logged in as <%= @user.name %> <%= link_to 'logout','/logout' %></span>
 <br/>
-<% if @user.organizations.nil? %>
+<% if @user.organization.nil? %>
     <p>It seems you are not a member of any organizations.</p>
     <p>Join an existing one or create a new one.</p>
     <br/>
@@ -17,6 +17,13 @@
         </ul>
     </li>
     <% end %>
-<% end %>
 </ul>
  <%= render  partial: 'shared/organization_form', locals: { 'organization': @organization, 'title': 'Create Organization' } %>
+<% else %>
+<h3><%= @user.organization.name %></h3>
+<ul>
+        <li><%= link_to 'View Shifts', 'organizations/'+@user.organization.id.to_s+'/shifts/' %></li>
+        <li><%= link_to 'Edit','organizations/'+@user.organization.id.to_s+'/edit/' %></li>
+        <li><%= link_to 'Leave','organizations/'+@user.organization.id.to_s+'/leave/' %></li>
+</ul>
+<% end %>

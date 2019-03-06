@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2019_02_23_044250) do
     t.datetime "start"
     t.datetime "finish"
     t.integer "break_length"
-    t.bigint "organization_id"
     t.bigint "user_id"
-    t.index ["organization_id"], name: "index_shifts_on_organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_shifts_on_user_id"
   end
 
@@ -33,10 +33,12 @@ ActiveRecord::Schema.define(version: 2019_02_23_044250) do
     t.string "name"
     t.string "email"
     t.string "password"
+    t.bigint "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
-  add_foreign_key "shifts", "organizations"
   add_foreign_key "shifts", "users"
+  add_foreign_key "users", "organizations"
 end

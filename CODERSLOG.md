@@ -75,7 +75,20 @@ organizations -> users
                       -> shifts
 
 users -> organizations
-          -> shifts
+          -> shiftsl
 
 shift -> organization
        ->  user
+
+2019-03-06
+Ok, so now I got really confused with the functionality and the features that I am supposed to do.
+I reverted the db schema to what the challenge requires. I re-read the details again and, because I am
+using git, so, I don't have problems reverting my changes back to old code.
+
+organizations
+users->belongs_to->organization
+shift->belongs_to->users
+
+when the user is logged in, the dashboard shows all the organizations the user can join.
+if the user joins or creates the organization, he will be under that organization and he will see 
+in the dashboard that he can view the shifts, edit the details of the organization or leave the organization.

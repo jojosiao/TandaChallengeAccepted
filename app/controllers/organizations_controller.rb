@@ -5,11 +5,26 @@ class OrganizationsController < ApplicationController
     end
 
     def create
+        if params.include? :organization
+            @organization = Organization.new org_params
+            if @organization.valid?
+                @organization.save
+
+                user = User.find_by id: session[:user_id]
+                user.update_attribute 'organization_id', @organization.id
+                user.save
+
+                flash[:success] = "Organization created successfully."
+                redirect_to "/dashboard"
+            end
+        end
+
 
     end
 
-    def org_params
-        params.require(:organization).permit(:name, :hourly_rate)
-    end
+    private 
+        def org_params
+            params.require(:organization).permit(:name, :hourly_rate)
+        end
 
 end
