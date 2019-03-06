@@ -92,3 +92,5 @@ shift->belongs_to->users
 when the user is logged in, the dashboard shows all the organizations the user can join.
 if the user joins or creates the organization, he will be under that organization and he will see 
 in the dashboard that he can view the shifts, edit the details of the organization or leave the organization.
+
+NOTE: Bryan Bibat has a great idea to create a validation that will check that if the password is provided, that will only start the validation of password confirmation. Good recommendation.
