@@ -94,3 +94,22 @@ if the user joins or creates the organization, he will be under that organizatio
 in the dashboard that he can view the shifts, edit the details of the organization or leave the organization.
 
 NOTE: Bryan Bibat has a great idea to create a validation that will check that if the password is provided, that will only start the validation of password confirmation. Good recommendation.
+
+2019-03-07
+Today, I learned about namespacing in routes for Rails 5. there is difference in declaring the namespace as a module, and as scope.l
+
+see: https://guides.rubyonrails.org/routing.html#nested-resources
+
+and: https://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing
+
+for more details.
+
+changes in the db structure is as follows:
+
+organizations-> has_many->shifts
+users->belongs_to->organizations
+users->has_many->shifts
+shifts->belongs_to->users
+
+NOTE: When you have changes on the migration and you don't want to create new migration file, you cannot just edit the existing migration file to make changes. You must do rollback first, and only then you can edit your migration file.
+

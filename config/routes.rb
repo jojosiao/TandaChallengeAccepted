@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   
   get '/dashboard', to: 'dashboard#index', as: 'dashboard_index'
 
-  resources :organizations ,  :shifts
+  scope '/dashboard' do
+    resources :organizations  do 
+      resources  :shifts
+    end
+  end
 
 end

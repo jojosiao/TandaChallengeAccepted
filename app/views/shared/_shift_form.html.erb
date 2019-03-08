@@ -1,0 +1,9 @@
+<%= form_with model: @new_shift, url: "/dashboard/organizations/"+@organization.id.to_s+"/shifts/", method: "POST", local: true do |f|  %>
+    <tr>
+    <td><%= @user.name %></td>
+    <td><%= f.text_field :start %></td>
+    <td><%= f.text_field :finish %></td>
+    <td><%= f.text_field :break_length %></td>
+    <td colspan="2"><%= f.submit "Create Shift" %></td>
+    </tr>
+<% end %>

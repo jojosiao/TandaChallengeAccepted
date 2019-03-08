@@ -1,0 +1,30 @@
+<h1>Adnat</h1>
+<p>Logged in as <%=  @user.name %> <%= link_to 'logout','/logout' %></p>
+
+<h3><%= @organization.name %></h3>
+
+<p>Shifts</p>
+<table border=1 cellspacing=2  cellpadding=2>
+    <tr>
+    <td>Employee Name</td>
+    <td>Start</td>
+    <td>Finish</td>
+    <td>Break Length</td>
+    <td>Hours Worked</td>
+    <td>Shift Cost</td>
+    </tr>
+    <% if !@shifts.nil? %>
+        <% @shifts.each do |t| %>   
+            <tr>
+                <td><%= t.user.name %></td>
+                <td><%= t.start %></td>
+                <td><%= t.finish %></td>
+                <td><%= t.break_length %></td>
+                <td></td>
+                <td></td>
+            </tr>
+        <% end %>
+    <% end %>
+    <%= render  partial: 'shared/shift_form', 'locals': {'shift': @new_shift, 'user': @user } %>
+</table>
+
