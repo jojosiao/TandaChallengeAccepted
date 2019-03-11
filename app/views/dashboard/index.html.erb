@@ -22,8 +22,8 @@
 <% else %>
 <h3><%= @user.organization.name %></h3>
 <ul>
-        <li><%= link_to 'View Shifts', 'organizations/'+@user.organization.id.to_s+'/shifts/' %></li>
-        <li><%= link_to 'Edit','organizations/'+@user.organization.id.to_s+'/edit/' %></li>
-        <li><%= link_to 'Leave','organizations/'+@user.organization.id.to_s+'/leave/' %></li>
+        <li><%= link_to 'View Shifts', '/dashboard/organizations/'+@user.organization.id.to_s+'/shifts/' %></li>
+        <li><%= link_to 'Edit','/dashboard/organizations/'+@user.organization.id.to_s+'/edit/' %></li>
+        <li><%= link_to 'Leave','/dashboard/organizations/'+@user.organization.id.to_s+'/leave/' %></li>
 </ul>
 <% end %>

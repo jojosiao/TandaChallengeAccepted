@@ -1,4 +1,4 @@
-<%= form_with model: @organization, url: "/organizations/", method: "POST", local: true do |f|  %>
+<%= form_with model: @organization, url: "/dashboard/organizations/", method: "POST", local: true do |f|  %>
     <%= title unless title.nil? %>
     <% if @organization.errors.any? %>
         <div>
