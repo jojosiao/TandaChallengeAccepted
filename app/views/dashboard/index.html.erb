@@ -12,8 +12,8 @@
     <li>
         <ul>
         <li><%= org.name %></li>
-        <li><%= link_to 'Join', 'organizations/'+org.id.to_s+'/join/' %></li>
-        <li><%= link_to 'Edit', 'organizations/'+org.id.to_s+'/edit/' %></li>
+        <li><%= link_to 'Join', '/dashboard/organizations/'+org.id.to_s+'/join/' %></li>
+        <li><%= link_to 'Edit', '/dashboard/organizations/'+org.id.to_s+'/edit/' %></li>
         </ul>
     </li>
     <% end %>
