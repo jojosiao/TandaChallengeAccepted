@@ -25,6 +25,10 @@
             </tr>
         <% end %>
     <% end %>
+    
+    <% if @user_shift.nil? %>
     <%= render  partial: 'shared/shift_form', 'locals': {'shift': @new_shift, 'user': @user } %>
+    <% end %>
+
 </table>
 

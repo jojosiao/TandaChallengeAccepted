@@ -5,12 +5,11 @@ class OrganizationsController < ApplicationController
     end
 
     def create
+        user = User.find_by id: session[:user_id]
         if params.include? :organization
             @organization = Organization.new org_params
             if @organization.valid?
                 @organization.save
-
-                user = User.find_by id: session[:user_id]
                 user.update_attribute 'organization_id', @organization.id
                 user.save
 
